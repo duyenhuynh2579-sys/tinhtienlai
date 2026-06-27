@@ -1,8 +1,5 @@
 import streamlit as st
-st.image("logo.jpg.jpg")
-width: 200px;          
-height: 200px;        
-object-fit: cover;
+st.image("logo.jpg.jpg", width=100)
 
 # Tiêu đề app
 st.title("APP TÍNH TIỀN GỬI TIẾT KIỆM_ĐỀ TÀI 2_Huỳnh Thị Cẩm Duyên")
