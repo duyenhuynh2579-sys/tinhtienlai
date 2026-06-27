@@ -1,18 +1,26 @@
 import streamlit as st
 st.image("logo.jpg.jpg", width=200)
 
+import streamlit as st
 import pandas as pd
 import numpy as np
 
-# Giả lập dữ liệu tiền lãi tăng trưởng để vẽ đồ thị
-# (Bạn có thể thay thế đống số này bằng công thức tính lãi thực tế của bạn)
+# 1. Giả lập dữ liệu tiền lãi tăng trưởng bắt đầu từ số 0 (Không bị âm)
+# Thay vì lấy số ngẫu nhiên có cả âm cả dương, ta chỉ lấy số dương ngẫu nhiên
+so_buoc_thoi_gian = 20 
+cac_khoan_lai_cong_them = np.random.uniform(10, 50, size=(so_buoc_thoi_gian, 1))
+
+# Tạo mảng bắt đầu bằng số 0 và cộng dồn tiền lãi tăng trưởng theo thời gian
+du_lieu_goc = np.vstack([ [0], cac_khoan_lai_cong_them.cumsum(axis=0) ])
+
+# 2. Đưa dữ liệu vào bảng (DataFrame) để hiển thị
 data = pd.DataFrame(
-    np.random.randn(20, 1).cumsum(axis=0) + 50,
-    columns=['Tiền lãi tích lũy']
+    du_lieu_goc,
+    columns=['Tiền lãi tích lũy (VNĐ)']
 )
 
-# Câu lệnh hiển thị đồ thị đường cực kỳ chuyên nghiệp
-st.subheader("📈 Biểu đồ tăng trưởng tiền lãi theo thời gian")
+# 3. Câu lệnh hiển thị đồ thị đường sinh động, bắt đầu từ gốc số 0
+st.subheader("📈 Biểu đồ tăng trưởng tiền lãi tích lũy")
 st.line_chart(data)
 
 # Thêm hiệu ứng nền Gradient cho trang web
