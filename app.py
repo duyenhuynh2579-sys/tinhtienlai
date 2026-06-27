@@ -1,6 +1,19 @@
 import streamlit as st
 st.image("logo.jpg.jpg", width=200)
 
+import pandas as pd
+import numpy as np
+
+# Giả lập dữ liệu tiền lãi tăng trưởng để vẽ đồ thị
+# (Bạn có thể thay thế đống số này bằng công thức tính lãi thực tế của bạn)
+data = pd.DataFrame(
+    np.random.randn(20, 1).cumsum(axis=0) + 50,
+    columns=['Tiền lãi tích lũy']
+)
+
+# Câu lệnh hiển thị đồ thị đường cực kỳ chuyên nghiệp
+st.subheader("📈 Biểu đồ tăng trưởng tiền lãi theo thời gian")
+st.line_chart(data)
 
 # Thêm hiệu ứng nền Gradient cho trang web
 st.markdown(
