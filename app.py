@@ -1,6 +1,10 @@
 import streamlit as st
 st.image("logo.jpg.jpg")
+# Resize về 200x200 px
 img = img.resize((200, 200))
+
+# Hiển thị ảnh trong Streamlit
+st.image(img)
 
 # Tiêu đề app
 st.title("APP TÍNH TIỀN GỬI TIẾT KIỆM_ĐỀ TÀI 2_Huỳnh Thị Cẩm Duyên")
