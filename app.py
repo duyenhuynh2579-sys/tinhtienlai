@@ -1,6 +1,20 @@
 import streamlit as st
 st.image("logo.jpg.jpg", width=200)
 
+
+# Thêm hiệu ứng nền Gradient cho trang web
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background: linear-gradient(135px, #1e293b 0%, #0f172a 100%);
+        color: #f8fafc;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Tiêu đề app
 st.title("APP TÍNH TIỀN GỬI TIẾT KIỆM_ĐỀ TÀI 2_Huỳnh Thị Cẩm Duyên")
 
